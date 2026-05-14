@@ -1,0 +1,206 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <div class="container-fluid">
+
+    <!-- LOGO -->
+
+    <a
+      class="navbar-brand"
+      routerLink="/home">
+
+      EMS
+
+    </a>
+
+    <!-- MOBILE TOGGLER -->
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+    <!-- NAVBAR LINKS -->
+
+    <div
+      class="collapse navbar-collapse"
+      id="navbarNav">
+
+      <ul class="navbar-nav me-auto">
+
+        <!-- PUBLIC -->
+
+        <ng-container *ngIf="!isLoggedIn">
+
+          <li class="nav-item">
+
+            <a
+              class="nav-link"
+              routerLink="/home">
+
+              Home
+
+            </a>
+
+          </li>
+
+          <li class="nav-item">
+
+            <a
+              class="nav-link"
+              routerLink="/login">
+
+              Login
+
+            </a>
+
+          </li>
+
+          <li class="nav-item">
+
+            <a
+              class="nav-link"
+              routerLink="/register">
+
+              Register
+
+            </a>
+
+          </li>
+
+        </ng-container>
+
+        <!-- ADMIN -->
+
+        <ng-container *ngIf="role === 'Admin'">
+
+          <li class="nav-item">
+
+            <a
+              class="nav-link"
+              routerLink="/admin-dashboard">
+
+              Dashboard
+
+            </a>
+
+          </li>
+
+          <li class="nav-item">
+
+            <a
+              class="nav-link"
+              routerLink="/events">
+
+              Events
+
+            </a>
+
+          </li>
+
+          <li class="nav-item">
+
+            <a
+              class="nav-link"
+              routerLink="/sessions">
+
+              Sessions
+
+            </a>
+
+          </li>
+
+          <li class="nav-item">
+
+            <a
+              class="nav-link"
+              routerLink="/speakers">
+
+              Speakers
+
+            </a>
+
+          </li>
+
+          <li class="nav-item">
+
+            <a
+              class="nav-link"
+              routerLink="/users">
+
+              Users
+
+            </a>
+
+          </li>
+
+        </ng-container>
+
+        <!-- PARTICIPANT -->
+
+        <ng-container *ngIf="role === 'Participant'">
+
+          <li class="nav-item">
+
+            <a
+              class="nav-link"
+              routerLink="/participant-dashboard">
+
+              Dashboard
+
+            </a>
+
+          </li>
+
+          <li class="nav-item">
+
+            <a
+              class="nav-link"
+              routerLink="/events">
+
+              Events
+
+            </a>
+
+          </li>
+
+          <li class="nav-item">
+
+            <a
+              class="nav-link"
+              routerLink="/my-sessions">
+
+              My Sessions
+
+            </a>
+
+          </li>
+
+        </ng-container>
+
+      </ul>
+
+      <!-- RIGHT SIDE -->
+
+      <div class="d-flex">
+
+        <button
+          *ngIf="isLoggedIn"
+          class="btn btn-danger"
+          (click)="logout()">
+
+          Logout
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</nav>

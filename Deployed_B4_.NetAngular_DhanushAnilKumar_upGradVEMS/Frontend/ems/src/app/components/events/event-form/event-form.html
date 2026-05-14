@@ -1,0 +1,150 @@
+<div class="container mt-4">
+
+  <div class="card shadow">
+
+    <div class="card-body">
+
+      <h2 class="mb-4">
+
+        {{
+          isEditMode
+          ? 'Edit Event'
+          : 'Create Event'
+        }}
+
+      </h2>
+
+      <div
+        *ngIf="errorMessage"
+        class="alert alert-danger">
+
+        {{ errorMessage }}
+
+      </div>
+
+      <div
+        *ngIf="successMessage"
+        class="alert alert-success">
+
+        {{ successMessage }}
+      </div>
+
+      <form
+        (ngSubmit)="saveEvent()">
+
+        <div class="mb-3">
+
+          <label class="form-label">
+            Event Name
+          </label>
+
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="model.eventName"
+            name="eventName"
+            required>
+
+        </div>
+
+        <div class="mb-3">
+
+          <label class="form-label">
+            Category
+          </label>
+
+          <select
+            class="form-select"
+            [(ngModel)]="model.categoryId"
+            name="categoryId"
+            required>
+
+            <option value="">
+              Select Category
+            </option>
+
+            <option
+              *ngFor="
+                let category
+                of categories
+              "
+              [value]="category.id">
+
+              {{ category.categoryName }}
+
+            </option>
+
+          </select>
+
+        </div>
+
+        <div class="mb-3">
+
+          <label class="form-label">
+            Event Date
+          </label>
+
+          <input
+            type="datetime-local"
+            class="form-control"
+            [(ngModel)]="model.eventDate"
+            name="eventDate"
+            required>
+
+        </div>
+
+        <div class="mb-3">
+
+          <label class="form-label">
+            Description
+          </label>
+
+          <textarea
+            class="form-control"
+            rows="4"
+            [(ngModel)]="model.description"
+            name="description">
+
+          </textarea>
+
+        </div>
+
+        <div class="mb-3">
+
+          <label class="form-label">
+            Status
+          </label>
+
+          <select
+            class="form-select"
+            [(ngModel)]="model.status"
+            name="status"
+            required>
+
+            <option value="Active">
+              Active
+            </option>
+
+            <option value="Inactive">
+              Inactive
+            </option>
+
+          </select>
+
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-success">
+
+          Save
+
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

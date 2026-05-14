@@ -1,0 +1,339 @@
+<div class="hero-section">
+
+  <div class="container py-5">
+
+    <!-- HERO -->
+
+    <div
+      class="card hero-card border-0 shadow-lg">
+
+      <div
+        class="card-body text-center p-5">
+
+        <h1 class="display-3 fw-bold">
+
+          Virtual Event
+          <span class="text-primary">
+            Management
+          </span>
+          System
+
+        </h1>
+
+        <p class="lead mt-4 text-secondary">
+
+          Manage and participate in
+          virtual events, sessions and
+          interactive experiences seamlessly. 
+
+        </p>
+
+        <!-- SEARCH BAR -->
+
+        <div class="row justify-content-center mt-4 mb-4">
+
+          <div class="col-lg-6 col-md-8">
+
+            <div class="input-group search-box">
+
+              <input
+                type="text"
+                class="form-control form-control-lg"
+
+                placeholder="Search events..."
+
+                [(ngModel)]="searchText"
+
+                (input)="onSearch()"
+              />
+
+              <button
+                class="btn btn-primary">
+
+                Search
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="mt-4">
+
+          <!-- NOT LOGGED IN -->
+
+          <ng-container *ngIf="!isLoggedIn">
+
+            <a
+              routerLink="/login"
+              class="btn btn-primary btn-lg me-3 px-4">
+
+              Login
+
+            </a>
+
+            <a
+              routerLink="/register"
+              class="btn btn-secondary btn-lg px-4">
+
+              Register
+
+            </a>
+
+          </ng-container>
+
+          <!-- ADMIN -->
+
+          <ng-container
+            *ngIf="
+              isLoggedIn &&
+              role === 'Admin'
+            ">
+
+            <a
+              routerLink="/admin-dashboard"
+              class="btn btn-success btn-lg px-4">
+
+              Go To Dashboard
+
+            </a>
+
+          </ng-container>
+
+          <!-- PARTICIPANT -->
+
+          <ng-container
+            *ngIf="
+              isLoggedIn &&
+              role === 'Participant'
+            ">
+
+            <a
+              routerLink="/participant-dashboard"
+              class="btn btn-success btn-lg px-4">
+
+              Go To Dashboard
+
+            </a>
+
+          </ng-container>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- FEATURES -->
+
+    <div class="row mt-5 g-4">
+
+      <div class="col-lg-4">
+
+        <div
+          class="card feature-card h-100 border-0 shadow-sm">
+
+          <div class="card-body text-center p-4">
+
+            <h3>
+
+              🎯 Events
+
+            </h3>
+
+            <p>
+
+              Discover upcoming
+               virtual events and experiences.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-lg-4">
+
+        <div
+          class="card feature-card h-100 border-0 shadow-sm">
+
+          <div class="card-body text-center p-4">
+
+            <h3>
+
+              📅 Sessions
+
+            </h3>
+
+            <p>
+
+               Join interactive sessions
+                led by expert speakers.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-lg-4">
+
+        <div
+          class="card feature-card h-100 border-0 shadow-sm">
+
+          <div class="card-body text-center p-4">
+
+            <h3>
+
+              ✅ Participation
+
+            </h3>
+
+            <p>
+
+              Register and manage
+              your event journey seamlessly.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- EVENTS -->
+
+    <div class="mt-5">
+
+      <div class="text-center mb-5">
+
+        <h2 class="fw-bold">
+
+          Upcoming Events
+
+        </h2>
+
+        <p class="text-secondary">
+
+          Explore available virtual events
+
+        </p>
+
+      </div>
+
+      <!-- LOADING -->
+
+      <div
+        *ngIf="loading"
+        class="alert alert-info">
+
+        Loading events...
+
+      </div>
+
+      <!-- EMPTY -->
+
+      <div
+        *ngIf="
+          !loading &&
+          events.length === 0
+        "
+        class="alert alert-warning">
+
+        No events available.
+
+      </div>
+
+      <!-- EVENT LIST -->
+
+      <div class="row g-4">
+
+        <div
+          *ngFor="let event of filteredEvents"
+          class="col-lg-4 col-md-6">
+
+          <div
+            class="card event-card border-0 shadow-lg h-100">
+
+            <div
+              class="card-body d-flex flex-column p-4">
+
+              <h4 class="fw-bold mb-3">
+
+                {{ event.eventName }}
+
+              </h4>
+
+              <p class="text-secondary">
+
+                {{ event.description }}
+
+              </p>
+
+              <div class="mb-3">
+
+                <span class="badge bg-primary">
+
+                  {{ event.categoryName }}
+
+                </span>
+
+              </div>
+
+              <p class="mb-2">
+
+                <strong>Date:</strong>
+
+                {{ event.eventDate | date }}
+
+              </p>
+
+              <p class="mb-4">
+
+                <strong>Status:</strong>
+
+                {{ event.status }}
+
+              </p>
+
+              <button
+                class="btn btn-primary mt-auto"
+                (click)="registerForEvent()">
+
+                Register Event
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div
+            *ngIf="
+            !loading &&
+            filteredEvents.length === 0
+            "
+            class="alert alert-warning text-center mt-4">
+
+              No matching events found.
+
+          </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

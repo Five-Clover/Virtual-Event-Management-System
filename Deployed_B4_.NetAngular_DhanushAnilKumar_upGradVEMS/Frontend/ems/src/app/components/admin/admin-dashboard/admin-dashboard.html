@@ -1,0 +1,221 @@
+<div class="container mt-5">
+
+  <h1 class="mb-4">
+
+    Admin Dashboard
+
+  </h1>
+
+  <div
+    *ngIf="loading"
+    class="alert alert-info">
+
+    Loading statistics...
+
+  </div>
+
+  <div
+    *ngIf="!loading"
+    class="row">
+
+    <!-- EVENTS -->
+
+    <div class="col-md-3 mb-4">
+
+      <div
+        class="card shadow text-center border-0">
+
+        <div class="card-body">
+
+          <h5>Total Events</h5>
+
+          <h1 class="display-5">
+
+            {{ totalEvents }}
+
+          </h1>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SESSIONS -->
+
+    <div class="col-md-3 mb-4">
+
+      <div
+        class="card shadow text-center border-0">
+
+        <div class="card-body">
+
+          <h5>Total Sessions</h5>
+
+          <h1 class="display-5">
+
+            {{ totalSessions }}
+
+          </h1>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SPEAKERS -->
+
+    <div class="col-md-3 mb-4">
+
+      <div
+        class="card shadow text-center border-0">
+
+        <div class="card-body">
+
+          <h5>Total Speakers</h5>
+
+          <h1 class="display-5">
+
+            {{ totalSpeakers }}
+
+          </h1>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- USERS -->
+
+    <div class="col-md-3 mb-4">
+
+      <div
+        class="card shadow text-center border-0">
+
+        <div class="card-body">
+
+          <h5>Total Users</h5>
+
+          <h1 class="display-5">
+
+            {{ totalUsers }}
+
+          </h1>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- MANAGEMENT CARDS -->
+
+  <div class="row mt-4">
+
+    <div class="col-md-3 mb-4">
+
+      <div
+        class="card shadow text-center">
+
+        <div class="card-body">
+
+          <h3>Events</h3>
+
+          <p>Manage all events</p>
+
+          <a
+            routerLink="/events"
+            class="btn btn-primary">
+
+            Open
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-3 mb-4">
+
+      <div
+        class="card shadow text-center">
+
+        <div class="card-body">
+
+          <h3>Sessions</h3>
+
+          <p>Manage sessions</p>
+
+          <a
+            routerLink="/sessions"
+            class="btn btn-primary">
+
+            Open
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-3 mb-4">
+
+      <div
+        class="card shadow text-center">
+
+        <div class="card-body">
+
+          <h3>Speakers</h3>
+
+          <p>Manage speakers</p>
+
+          <a
+            routerLink="/speakers"
+            class="btn btn-primary">
+
+            Open
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-3 mb-4">
+
+      <div
+        class="card shadow text-center">
+
+        <div class="card-body">
+
+          <h3>Users</h3>
+
+          <p>View registered users</p>
+
+          <a
+            routerLink="/users"
+            class="btn btn-primary">
+
+            Open
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

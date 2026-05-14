@@ -1,0 +1,40 @@
+# Build folders
+bin/
+obj/
+
+# Angular
+node_modules/
+dist/
+.angular/
+
+# Visual Studio
+.vs/
+.vscode/
+
+# Coverage reports
+coverage/
+fine-code-coverage/
+TestResults/
+
+# Logs
+*.log
+npm-debug.log
+yarn-error.log
+
+# Temporary files
+tmp/
+out-tsc/
+bazel-out/
+
+# IDE files
+.idea/
+.project
+.classpath
+.settings/
+
+# Environment files
+.env
+
+# System files
+.DS_Store
+Thumbs.db

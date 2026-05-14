@@ -1,0 +1,44 @@
+.speaker-card {
+
+  border-radius: 20px;
+
+  transition: 0.3s;
+}
+
+.speaker-card:hover {
+
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 10px 25px rgba(
+      0,
+      0,
+      0,
+      0.15
+    );
+}
+
+.speaker-avatar {
+
+  width: 90px;
+
+  height: 90px;
+
+  margin: auto;
+
+  border-radius: 50%;
+
+  background: #6f42c1;
+
+  color: white;
+
+  font-size: 36px;
+
+  font-weight: bold;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}

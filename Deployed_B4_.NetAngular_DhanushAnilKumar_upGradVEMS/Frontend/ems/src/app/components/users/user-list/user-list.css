@@ -1,0 +1,44 @@
+.user-card {
+
+  border-radius: 20px;
+
+  transition: 0.3s;
+}
+
+.user-card:hover {
+
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 10px 25px rgba(
+      0,
+      0,
+      0,
+      0.15
+    );
+}
+
+.user-avatar {
+
+  width: 80px;
+
+  height: 80px;
+
+  margin: auto;
+
+  border-radius: 50%;
+
+  background: #0d6efd;
+
+  color: white;
+
+  font-size: 32px;
+
+  font-weight: bold;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
