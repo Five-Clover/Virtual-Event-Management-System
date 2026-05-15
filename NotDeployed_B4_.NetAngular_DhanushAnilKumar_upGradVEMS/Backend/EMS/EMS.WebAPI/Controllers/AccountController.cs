@@ -31,7 +31,7 @@ namespace EMS.WebAPI.Controllers
 
             await _service.RegisterAsync(user);
 
-            return Ok("User registered");
+            return Ok(new { message = "User registered" });
         }
 
         [HttpPost("login")]

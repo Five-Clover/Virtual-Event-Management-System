@@ -40,7 +40,9 @@ export class Register {
     this.authService.register(this.model)
       .subscribe({
 
-        next: () => {
+        next: (response) => {
+
+          console.log(response);
 
           this.successMessage =
             'Registration successful';
